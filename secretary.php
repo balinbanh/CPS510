@@ -24,11 +24,19 @@
         </thead>
         <tbody>
 
+        <form action = "editSecretary.php">
         <?php
+         //if user is admin, loop
+         echo "<tr>";
+         echo "<td><input type=\"text\" name=\"secID\" value=\"1\"></td>";
+         echo "<td><input type=\"text\" name=\"sFirst\" value=\"Emily\"></td>";
+         echo "<td><input type=\"text\" name=\"sLast\" value=\"Kim\"></td>";
+         echo "<td><input type=\"text\" name=\"sWork\" value=\"1\"></td>";
+         echo "</tr>";
 
          //if user is admin, loop
           echo "<tr>";
-          echo "<td id=\"secID\" contenteditable=\"true\">1</td>";
+          echo "<td id=\"secID\" contenteditable=\"true\">2</td>";
           echo "<td id=\"sFirst\" contenteditable=\"true\">Jane</td>";
           echo "<td id=\"sLast\" contenteditable=\"true\">Smith</td>";
           echo "<td id=\"sWork\" contenteditable=\"true\">1</td>";
@@ -36,7 +44,7 @@
 
           //if user is not admin, loop this
           echo "<tr>";
-          echo "<td>2</td>";
+          echo "<td>3</td>";
           echo "<td>Erica</td>";
           echo "<td>Tomah</td>";
           echo "<td>1</td>";
@@ -50,9 +58,9 @@
     <div class="container">
       <br>
       <br>
-      <input type="button" class="btn btn-primary" value="Save Changes">
+      <input type= "submit" class="btn btn-primary" value="Save Changes">
       <a href="addSecretary.html" target="iframe_a" class="btn btn-primary">Add Secretary</a>
     </div>
-
+  </form>
   </body>
   </html>

@@ -26,9 +26,19 @@
         </thead>
         <tbody>
 
+        <form action = "editDoctor.php">
         <?php
+        //if user is admin, loop... post method .. 
+         echo "<tr>";
+         echo "<td><input type=\"text\" name=\"fName\" value=\"Beverly\"></td>";
+         echo "<td><input type=\"text\" name=\"dLast\" value=\"Li\"></td>";
+         echo "<td><input type=\"text\" name=\"docID\" value=\"1005\"></td>";
+         echo "<td><input type=\"text\" name=\"certYear\" value=\"2006\"></td>";
+         echo "<td><input type=\"text\" name=\"cert\" value=\"OD\"></td>";
+         echo "<td><input type=\"text\" name=\"work\" value=\"1\"></td>";
+         echo "</tr>";
 
-         //if user is admin, loop
+         //if user is admin, loop... ignore this (table method)
           echo "<tr>";
           echo "<td id=\"dFirst\" contenteditable=\"true\">James</td>";
           echo "<td id=\"dLast\" contenteditable=\"true\">Dean</td>";
@@ -56,9 +66,10 @@
     <div class="container">
       <br>
       <br>
-      <input type="button" class="btn btn-primary" value="Save Changes">
+      <input type= "submit" class="btn btn-primary" value="Save Changes">
       <a href="addDoctor.html" target="iframe_a" class="btn btn-primary">Add Doctor</a>
     </div>
+  </form>
 
   </body>
   </html>

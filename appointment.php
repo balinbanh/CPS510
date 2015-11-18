@@ -26,9 +26,20 @@
         </thead>
         <tbody>
 
+        <form action = "editAppointment.php">
         <?php
 
-         //if user is admin, loop
+        //if user is admin, loop this... post method
+          echo "<tr>";
+          echo "<td><input type=\"text\" name=\"appNum\" value=\"1\"></td>";
+          echo "<td><input type=\"text\" name=\"appDate\" value=\"30-Oct-15\"></td>";
+          echo "<td><input type=\"text\" name=\"appTime\" value=\"1200\"></td>";
+          echo "<td><input type=\"text\" name=\"appPatient\" value=\"155200\"></td>";
+          echo "<td><input type=\"text\" name=\"appDoc\" value=\"1001\"></td>";
+          echo "<td><input type=\"text\" name=\"appSch\" value=\"4\"></td>";
+          echo "</tr>";
+
+         //if user is admin, loop .. table method... dont do this
           echo "<tr>";
           echo "<td id=\"appNum\" contenteditable=\"true\">1</td>";
           echo "<td id=\"appDate\" contenteditable=\"true\">30-Oct-15</td>";
@@ -65,9 +76,10 @@
     <div class="container">
       <br>
       <br>
-      <input type="button" class="btn btn-primary" value="Save Changes">
-      <a href="addAppointment.html" target="iframe_a" class="btn btn-primary">Add Appointment</a>
+      <input type= "submit" class="btn btn-primary" value="Save Changes">
+      <a href="addAppointment.html" target="iframe_a" class="btn btn-primary">  Add Appointment</a>
     </div>
+  </form>
 
   </body>
   </html>
