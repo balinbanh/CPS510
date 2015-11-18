@@ -1,7 +1,7 @@
 <?
 session_start();
-$_SESSION['balina'] = ' the ballerina';
 ?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -11,15 +11,14 @@ $_SESSION['balina'] = ' the ballerina';
       <title>CPS510 Database</title>
    </head>
    <body class = "blue">
-   
-   
-   <?php
+
+   <?
    $user;
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//echo $_POST["user"]; 
 		$user = $_POST['user'];
 		require ("../cps510/connect.php");
-		$stid = oci_parse($conn, "SELECT DOC_ID FROM DOCTORS WHERE DOC_ID = $user");
+		$stid = oci_parse($conn, "SELECT DOC_ID FROM DOCTORS WHERE DOC_ID = $user UNION SELECT ID FROM SECRETARY WHERE ID = $user");
 		if (!$stid) {
 		  $e = oci_error($conn);
 		  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
@@ -29,7 +28,7 @@ $_SESSION['balina'] = ' the ballerina';
 		if (!$r) {
 		  $e = oci_error($stid);
 		  //trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-		  //echo "dead";
+		  echo "dead";
 		  oci_free_statement($stid);
 		  oci_close($conn);
 		}
@@ -45,7 +44,6 @@ $_SESSION['balina'] = ' the ballerina';
    
    if (!$rows)
    {
-//	echo "fml";
 	   echo '
   <form action= "" method="post">
    <br>
@@ -57,14 +55,12 @@ $_SESSION['balina'] = ' the ballerina';
    <br>
    <input type = "submit" value = "Login"/>
    </form>';
-//echo "fml";
-   if (!empty($_POST['user']))
+   if (isset($_POST['user']))
 	   echo '<p>Invalid ID</p>';
    }
-   elseif ($rows) {//sucecssful login, direct to homepage 
-
+   else if ($rows) {//sucecssful login, direct to homepage 
 	   echo "Logged in as " . $_POST['user'];
-	   $_SESSION['login_sess'] = $_POST;
+	   $_SESSION['login'] = $_POST;
 	   header("Location: home.php");
 			exit;
    }
