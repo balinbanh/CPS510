@@ -27,14 +27,26 @@
         </thead>
         <tbody>
 
+        <form action = "editFile.php">
+
         <?php
+         //if user is admin, loop ... post method
+         echo "<tr>";
+         echo "<td><input type=\"text\" name=\"pID\" value=\"123546\"></td>";
+         echo "<td><input type=\"text\" name=\"height\" value=\"155\"></td>";
+         echo "<td><input type=\"text\" name=\"weight\" value=\"123\"></td>";
+         echo "<td><input type=\"text\" name=\"conditions\" value=\"(null)\"></td>";
+         echo "<td><input type=\"text\" name=\"history\" value=\"(null)\"></td>";
+         echo "<td><input type=\"text\" name=\"notes\" value=\"Good Health.\"></td>";
+         echo "<td><input type=\"text\" name=\"prescription\" value=\"(null)\"></td>";
+         echo "</tr>";
 
          //if user is admin, loop
           echo "<tr>";
           echo "<td id=\"pID\" contenteditable=\"true\">500002</td>";
           echo "<td id=\"height\" contenteditable=\"true\">172</td>";
           echo "<td id=\"weight\" contenteditable=\"true\">150</td>";
-          echo "<td id=\"conditionsr\" contenteditable=\"true\">(null)</td>";
+          echo "<td id=\"conditions\" contenteditable=\"true\">(null)</td>";
           echo "<td id=\"history\" contenteditable=\"true\">(null)</td>";
           echo "<td id=\"notes\" contenteditable=\"true\">Good Health</td>";
           echo "<td id=\"prescription\" contenteditable=\"true\">(null)</td>";
@@ -59,9 +71,10 @@
     <div class="container">
       <br>
       <br>
-      <input type="button" class="btn btn-primary" value="Save Changes">
+      <input type= "submit" class="btn btn-primary" value="Save Changes">
       <a href="addFile.html" target="iframe_a" class="btn btn-primary">Add Medical File</a>
     </div>
+  </form>
 
   </body>
   </html>

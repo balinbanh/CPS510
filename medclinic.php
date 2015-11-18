@@ -26,12 +26,23 @@
         </thead>
         <tbody>
 
+        <form action = "editClinic.php">
+
         <?php
+        //if user is admin, loop ..post method
+          echo "<tr>";
+          echo "<td><input type=\"text\" name=\"clinicName\" value=\"Toronto Walk-In Clinic\"></td>";
+          echo "<td><input type=\"text\" name=\"clinicID\" value=\"3\"></td>";
+          echo "<td><input type=\"text\" name=\"cPhone\" value=\"4168889135\"></td>";
+          echo "<td><input type=\"text\" name=\"cStreetNum\" value=\"100\"></td>";
+          echo "<td><input type=\"text\" name=\"cStreet\" value=\"Toronto Avenue\"></td>";
+          echo "<td><input type=\"text\" name=\"cCity\" value=\"Toronto\"></td>";
+          echo "</tr>";
 
          //if user is admin, loop
           echo "<tr>";
           echo "<td id=\"clinicName\" contenteditable=\"true\">Dundas Walk-In Clinic</td>";
-          echo "<td id=\"clinicID\" contenteditable=\"true\">1</td>";
+          echo "<td id=\"clinicID\" contenteditable=\"true\">2</td>";
           echo "<td id=\"cPhone\" contenteditable=\"true\">4169671111</td>";
           echo "<td id=\"cStreetNum\" contenteditable=\"true\">4129</td>";
           echo "<td id=\"cStreet\" contenteditable=\"true\">Dundas W St</td>";
@@ -41,7 +52,7 @@
           //if user is not admin, loop this
           echo "<tr>";
           echo "<td>Shaftsbury Walk-In Clinic</td>";
-          echo "<td>2</td>";
+          echo "<td>3</td>";
           echo "<td>905711111</td>";
           echo "<td>419</td>";
           echo "<td>Shaftsbury</td>";
@@ -56,9 +67,10 @@
     <div class="container">
       <br>
       <br>
-      <input type="button" class="btn btn-primary" value="Save Changes">
+      <input type= "submit" class="btn btn-primary" value="Save Changes">
       <a href="addClinic.html" target="iframe_a" class="btn btn-primary">  Add Clinic</a>
     </div>
+  </form>
 
   </body>
   </html>

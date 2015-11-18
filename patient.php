@@ -30,7 +30,22 @@
         </thead>
         <tbody>
 
+        <form action = "editPatient.php">
         <?php
+         //if user is admin, loop... post method*
+         echo "<tr>";
+         echo "<td><input type=\"text\" name=\"first\" value=\"Jessica\"></td>";
+         echo "<td><input type=\"text\" name=\"last\" value=\"Su\"></td>";
+         echo "<td><input type=\"text\" name=\"gender\" value=\"F\"></td>";
+         echo "<td><input type=\"text\" name=\"birth\" value=\"16-Nov-95\"></td>";
+         echo "<td><input type=\"text\" name=\"sNum\" value=\"111\"></td>";
+         echo "<td><input type=\"text\" name=\"street\" value=\"Toronto Avenue\"></td>";
+         echo "<td><input type=\"text\" name=\"city\" value=\"Toronto\"></td>";
+         echo "<td><input type=\"text\" name=\"ohip\" value=\"123596\"></td>";
+         echo "<td><input type=\"text\" name=\"pNum\" value=\"9058898989\"></td>";
+         echo "<td><input type=\"text\" name=\"doctor\" value=\"1004\"></td>";
+         echo "</tr>";
+
          //if user is admin, loop .. replace Jack, Daniels, etc with $first, $last.. etc
           echo "<tr>";
           echo "<td id=\"first\" contenteditable=\"true\">Jack</td>";
@@ -263,9 +278,10 @@
     <div class="container">
       <br>
       <br>
-      <input type="button" class="btn btn-primary" value="Save Changes">
+      <input type= "submit" class="btn btn-primary" value="Save Changes">
       <a href="addPatient.html" target="iframe_a" class="btn btn-primary">  Add Patient</a>
     </div>
+  </form>
 
   </body>
   </html>
