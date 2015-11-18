@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Dundas Walk-In Clinic </title>
+  <meta http-equiv="Content-type"
+     content="text/html; charset=utf-8"/>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+  <body class = "transparent">
+   <br>
+   <h3>Please fill in all the fields below.</h3>
+   <br>
+   <form action="insertFile.php" method="post">
+
+   <div class="grey container">
+   <br>
+   <br>
+   <input type = "text" name = "pID" placeholder= "Patient ID">
+   <br>
+   <br>
+   <input type = "text" name = "height" placeholder= "Height(in cm)">
+   <br>
+   <br>
+   <input type = "text" name = "weight" placeholder= "Weight(in pounds)">
+   <br>
+   <br>
+   <input type = "text" name = "conditions" placeholder= "Conditions">
+   <br>
+   <br>
+   <input type = "text" name = "history" placeholder= "Medical History">
+   <br>
+   <br>
+   <input type = "text" name = "notes" placeholder= "Doctor Notes">
+   <br>
+   <br>
+   <input type = "text" name = "prescription" placeholder= "Prescription">
+   <br>
+   <br>
+   <br>
+   </div>
+
+   <div class = "container">
+   <br>
+   <br>
+   <input type= "submit" class="btn btn-primary" value="Add Medical File">
+   <a href="medfile.php" target="iframe_a" class="btn btn-primary">Cancel</a>
+   </div>
+   </form>
+
+   </body>
+</html>

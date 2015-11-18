@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Dundas Walk-In Clinic </title>
+  <meta http-equiv="Content-type"
+     content="text/html; charset=utf-8"/>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+  <body class = "transparent">
+   <br>
+   <h3>Please fill in all the fields below.</h3>
+   <br>
+   <form action="insertAppointment.php" method="post">
+   <div class="grey container">
+   <br>
+   <br>
+   <input type = "text" name = "appNum" placeholder= "Appointment Number">
+   <br>
+   <br>
+   Appointment Date:
+   <br>
+   <input type = "text" name = "appDate" placeholder= "(DD-MM-YY)">
+   <br>
+   <br>
+   Appointment Time:
+   <br>
+   <input type = "text" name = "appTime" placeholder= "hhmm (e.g. 1215)">
+   <br>
+   <br>
+   <input type = "text" name = "appPatient" placeholder= "Patient ID">
+   <br>
+   <br>
+   <input type = "text" name = "appDoc" placeholder= "Doctor ID">
+   <br>
+   <br>
+   <input type = "text" name = "appSch" placeholder= "Scheduler ID">
+   <br>
+   <br>
+   <br>
+   </div>
+
+   <div class = "container">
+   <br>
+   <br>
+   <input type= "submit" class="btn btn-primary" value="Add Appointment">
+   <a href="appointment.php" target="iframe_a" class="btn btn-primary">  Cancel</a>
+   </div>
+   </form>
+
+   </body>
+</html>

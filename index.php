@@ -13,7 +13,7 @@
    <br>
    <br>
    <br>
-   <h1>Welcome to Dundas Walk-In Clinic.</h1>
+   <header><h1>Welcome to Dundas Walk-In Clinic.</h1></header>
    <input type = "text" name = "user" placeholder= "Username">
    <br>
    <br>
