@@ -1,3 +1,7 @@
+<?
+session_start();
+$_SESSION['balina'] = ' the ballerina';
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -22,11 +26,10 @@
 		}
 		// Perform the logic of the query
 		$r = oci_execute($stid);
-		echo "HELLO";
 		if (!$r) {
 		  $e = oci_error($stid);
 		  //trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-		  echo "dead";
+		  //echo "dead";
 		  oci_free_statement($stid);
 		  oci_close($conn);
 		}
@@ -61,6 +64,7 @@
    elseif ($rows) {//sucecssful login, direct to homepage 
 
 	   echo "Logged in as " . $_POST['user'];
+	   $_SESSION['login_sess'] = $_POST;
 	   header("Location: home.php");
 			exit;
    }

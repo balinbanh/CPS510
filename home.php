@@ -1,3 +1,9 @@
+<?
+session_start();
+//$_SESSION['login_sess'] = $_POST;
+//echo $_SESSION['login_sess']['user'];
+?>
+
 <html>
   <head>
     <title> Dundas Walk-In Clinic </title>
@@ -14,7 +20,7 @@
         <br>
         <header><h1>Dundas Walk-In Clinic.</h1></header>
           <?php
-            $user = $_POST['user'];
+            $user = $_SESSION['login_sess']['user'];//['user'];
             echo "<p class = \"white\"> Welcome $user!</p>";
           ?>
         <ul class="nav nav-tabs">
