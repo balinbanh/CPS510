@@ -18,8 +18,15 @@
   background-size: cover;
 }
 
-input{
-  color: black;
+input:not(.edit):not(.btn){
+  color: white;
+  border-style: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+.edit{
+  color:black;
 }
 
 iframe{
@@ -41,7 +48,6 @@ body{
     color:white;
     font-family:"Arial", sans-serif;
     margin-bottom: auto;
-
     }
 
 table{
@@ -80,6 +86,7 @@ tr:not(.different):hover{
    text-transform: uppercase;
    background: #000000;
    padding: 10px 10px;
+   margin-bottom: 30px;
    margin-left:3px;
    margin-right:3px;
 }
