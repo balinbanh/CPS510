@@ -6,22 +6,67 @@
       <link rel="stylesheet" href="style.css">
       <title>CPS510 Database</title>
    </head>
-
-  <body class = "blue">
-
-  <form action="home.php" method="post">
+   <body class = "blue">
+   
+   
+   <?php
+   $user;
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		//echo $_POST["user"]; 
+		$user = $_POST['user'];
+		require ("../cps510/connect.php");
+		$stid = oci_parse($conn, "SELECT DOC_ID FROM DOCTORS WHERE DOC_ID = $user");
+		if (!$stid) {
+		  $e = oci_error($conn);
+		  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+		}
+		// Perform the logic of the query
+		$r = oci_execute($stid);
+		echo "HELLO";
+		if (!$r) {
+		  $e = oci_error($stid);
+		  //trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+		  echo "dead";
+		  oci_free_statement($stid);
+		  oci_close($conn);
+		}
+		else if (($rows = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_LOBS)) != false) {
+			foreach($rows as $id => $value) {
+				echo "ID: $value";
+			}
+		} 
+		
+		oci_free_statement($stid);
+		oci_close($conn);
+	}
+   
+   if (!$rows)
+   {
+//	echo "fml";
+	   echo '
+  <form action= "" method="post">
    <br>
    <br>
    <br>
-   <header><h1>Welcome to Dundas Walk-In Clinic.</h1></header>
-   <input type = "text" name = "user" placeholder= "Username">
+   <h1> Medical Clinic System </h1>
+   Username: <input type = "text" name = "user">
    <br>
    <br>
    <input type = "submit" value = "Login"/>
-   </form>
-   <?php
+   </form>';
+//echo "fml";
+   if (!empty($_POST['user']))
+	   echo '<p>Invalid ID</p>';
+   }
+   elseif ($rows) {//sucecssful login, direct to homepage 
 
+	   echo "Logged in as " . $_POST['user'];
+	   header("Location: home.php");
+			exit;
+   }
+	   
+	
+	?>
 
-    ?>
    </body>
 </html>
