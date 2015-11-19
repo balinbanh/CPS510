@@ -3,5 +3,5 @@ Database Assignment
 
 By:
     Balin Banh,
-    Berverly Li,
+    Beverly Li,
     Brandon Sam Soon
