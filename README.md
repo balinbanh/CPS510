@@ -2,6 +2,6 @@
 Database Assignment
 
 By:
-    Balin Banh
-    Berverly Li
+    Balin Banh,
+    Berverly Li,
     Brandon Sam Soon
