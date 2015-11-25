@@ -26,38 +26,57 @@
         </thead>
         <tbody>
 
-        <form action = "editClinic.php">
+        <form action = "editClinic.php" method = "post">
 
         <?php
-        //if user is admin, loop ..post method
-          echo "<tr>";
-          echo "<td><input type=\"text\" name=\"clinicName\" value=\"Toronto Walk-In Clinic\"></td>";
-          echo "<td><input type=\"text\" name=\"clinicID\" value=\"3\"></td>";
-          echo "<td><input type=\"text\" name=\"cPhone\" value=\"4168889135\"></td>";
-          echo "<td><input type=\"text\" name=\"cStreetNum\" value=\"100\"></td>";
-          echo "<td><input type=\"text\" name=\"cStreet\" value=\"Toronto Avenue\"></td>";
-          echo "<td><input type=\"text\" name=\"cCity\" value=\"Toronto\"></td>";
-          echo "</tr>";
-
-         //if user is admin, loop
-          echo "<tr>";
-          echo "<td id=\"clinicName\" contenteditable=\"true\">Dundas Walk-In Clinic</td>";
-          echo "<td id=\"clinicID\" contenteditable=\"true\">2</td>";
-          echo "<td id=\"cPhone\" contenteditable=\"true\">4169671111</td>";
-          echo "<td id=\"cStreetNum\" contenteditable=\"true\">4129</td>";
-          echo "<td id=\"cStreet\" contenteditable=\"true\">Dundas W St</td>";
-          echo "<td id=\"cCity\" contenteditable=\"true\">Toronto</td>";
-          echo "</tr>";
-
-          //if user is not admin, loop this
-          echo "<tr>";
-          echo "<td>Shaftsbury Walk-In Clinic</td>";
-          echo "<td>3</td>";
-          echo "<td>905711111</td>";
-          echo "<td>419</td>";
-          echo "<td>Shaftsbury</td>";
-          echo "<td>Richmond Hill</td>";
-          echo "</tr>";
+			require ("../../cps510/connect.php");
+		$stid = oci_parse($conn, "SELECT * FROM MEDICAL_CLINIC");
+		if (!$stid) {
+		  $e = oci_error($conn);
+		  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+		}
+		// Perform the logic of the query
+		$r = oci_execute($stid);
+		if (!$r) {
+		  $e = oci_error($stid);
+		  //trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+		  //echo "dead";
+		  
+		}
+        $rows;
+			while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_LOBS))
+				$rows[] = $row;
+			//echo "<table>";
+			echo count($rows);
+			
+			foreach ($rows as $row)
+			{	
+				$index = 0;
+				$type = "";
+				echo '<tr>';
+				foreach ($row as $key => $value) {
+				if ($index == 0) 
+						$type = 'name';
+				if ($index == 1) 
+						$type = 'id';
+				if ($index == 2) 
+						$type = 'phone';
+				if ($index == 3) 
+						$type = 'sNum';
+				if ($index == 4) 
+						$type = 'street';
+				if ($index == 5) 
+						$type = 'city';
+				$type = $type.'[]';
+				echo "<td><input type = \"text\" name = \"$type\" value = $value></td>"; 
+				$index = $index + 1;
+					//echo "<td>$value</td>";  //if they not admin cant edit
+				}
+				echo "</tr>";
+			}
+			//echo "</table>";
+			oci_free_statement($stid);
+			oci_close($conn);
         ?>
 
         </tbody>
