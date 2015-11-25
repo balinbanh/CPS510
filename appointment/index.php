@@ -26,7 +26,7 @@
         </thead>
         <tbody>
 
-        <form action = "editAppointment.php">
+        <form action = "editAppointment.php" method = "post">
 		<?php
          require ("../../cps510/connect.php");
 		$stid = oci_parse($conn, "SELECT * FROM APPOINTMENTS");
@@ -49,10 +49,27 @@
 			echo count($rows);
 			foreach ($rows as $row)
 			{
+				$index = 0;
+				$type = "";
 				echo '<tr>';
-				foreach ($row as $key => $value)
-				echo "<td><input type = \"text\" value = $value></td>"; 
+				foreach ($row as $key => $value) {
+					if ($index == 0) 
+						$type = 'appNum';
+					if ($index == 1) 
+						$type = 'appDate';
+					if ($index == 2) 
+						$type = 'appTime';
+					if ($index == 3) 
+						$type = 'patient';
+					if ($index == 4) 
+						$type = 'doctor';
+					if ($index == 5) 
+						$type = 'schedBy';
+					$type = $type.'[]';
+					echo "<td><input type = \"text\" name = \"$type\" value = $value></td>";
 					//echo "<td>$value</td>";  //if they not admin cant edit
+					$index = $index + 1;
+				}
 				echo "</tr>";
 			}
 			//echo "</table>";

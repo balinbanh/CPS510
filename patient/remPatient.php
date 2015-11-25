@@ -4,8 +4,8 @@
 	$ohip = (int)($_POST['ohip']);
 
 		require ("../../cps510/connect.php");
-		echo "DELETE FROM PATIENTS
-		WHERE OHIP = $ohip";
+		//echo "DELETE FROM PATIENTS
+		//WHERE OHIP = $ohip";
 		
 		$stid = oci_parse($conn, "DELETE FROM PATIENTS
 		WHERE OHIP = $ohip");
