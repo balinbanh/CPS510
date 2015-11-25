@@ -28,7 +28,7 @@
 
         <form action = "editDoctor.php" method = "POST">
         <?php
-         require ("../../cps510/connect.php");
+        require ("../../cps510/connect.php");
 		$stid = oci_parse($conn, "SELECT * FROM DOCTORS");
 		if (!$stid) {
 		  $e = oci_error($conn);
