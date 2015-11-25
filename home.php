@@ -18,16 +18,44 @@ session_start();
         <br>
         <header><h1>Dundas Walk-In Clinic.</h1></header>
           <?php
-            $user = $_SESSION['login']['user'];//['user'];
-            echo "<p class = \"white\"> Welcome $user!</p>";
+			if ( $_SESSION['loggedIn'] == false) {
+				header("Location: index.php");
+					exit;
+			}
+			
+			$user = (int)($_SESSION['login']['user']);//['user'];
+			$name = "";
+			require ("../cps510/connect.php");
+			//echo "SELECT FIRST_NAME FROM DOCTORS WHERE DOC_ID = $user SELECT FIRST_NAME FROM SECRETARY WHERE ID = $user";
+			$stid = oci_parse($conn, "SELECT FIRST_NAME, LAST_NAME FROM DOCTORS WHERE DOC_ID = $user UNION SELECT FIRST_NAME, LAST_NAME FROM SECRETARY WHERE ID = $user");
+			if (!$stid) {
+			  $e = oci_error($conn);
+			  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+			}
+			// Perform the logic of the query
+			$r = oci_execute($stid);
+			if (!$r) {
+				$e = oci_error($stid);
+				//trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+				//echo "dead";
+			}
+			else if (($rows = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_LOBS)) != false) {
+				foreach($rows as $id => $value) {
+					$name = $name." $value";
+				}
+			} 
+			oci_free_statement($stid);
+			oci_close($conn);
+            //$user = $_SESSION['login']['user'];//['user'];
+            echo "<p class = \"white\"> Welcome $name!</p>";
           ?>
         <ul class="nav nav-tabs">
-          <li><a href="medclinic.php" target="iframe_a">Medical Clinic</a></li>
-          <li><a href="doctor.php" target="iframe_a">Doctors</a></li>
-          <li><a href="patient.php" target="iframe_a">Patients</a></li>
-          <li><a href="medfile.php" target="iframe_a">Medical Files</a></li>
-          <li><a href="appointment.php" target="iframe_a">Appointments</a></li>
-          <li><a href="secretary.php" target="iframe_a">Secretary</a></li>
+          <li><a href="clinic" target="iframe_a">Medical Clinic</a></li>
+          <li><a href="doctor" target="iframe_a">Doctors</a></li>
+          <li><a href="patient" target="iframe_a">Patients</a></li>
+          <li><a href="medical_files" target="iframe_a">Medical Files</a></li>
+          <li><a href="appointment" target="iframe_a">Appointments</a></li>
+          <li><a href="secretary" target="iframe_a">Secretary</a></li>
         </ul>
 
     <div class="container-fluid">

@@ -13,6 +13,11 @@ session_start();
    <body class = "blue">
 
    <?
+   if ( $_SESSION['loggedIn'] == true) {
+				header("Location: home.php");
+					exit;
+			}
+   $_SESSION['loggedIn'] = false;
    $user;
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		//echo $_POST["user"]; 
@@ -49,8 +54,8 @@ session_start();
    <br>
    <br>
    <br>
-   <h1> Medical Clinic System </h1>
-   Username: <input type = "text" name = "user">
+   <header><h1>Dundas Walk-In Clinic</h1></header>
+   <input type = "text" name = "user" placeholder="Username">
    <br>
    <br>
    <input type = "submit" value = "Login"/>
@@ -61,6 +66,7 @@ session_start();
    else if ($rows) {//sucecssful login, direct to homepage 
 	   echo "Logged in as " . $_POST['user'];
 	   $_SESSION['login'] = $_POST;
+	   $_SESSION['loggedIn'] = true;
 	   header("Location: home.php");
 			exit;
    }

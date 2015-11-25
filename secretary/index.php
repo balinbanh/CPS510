@@ -4,7 +4,7 @@
     <meta http-equiv="Content-type"
        content="text/html; charset=utf-8"/>
        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-       <link rel="stylesheet" href="style.css">
+       <link rel="stylesheet" href="../style.css">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
@@ -12,7 +12,7 @@
   <body class = "transparent">
     <div class="container">
       <br>
-      <h4 class = "grey">DOCTORS</h4>
+      <h4 class = "grey">SECRETARY</h4>
       <table class="table">
         <thead>
           <tr class = "different">
@@ -60,6 +60,7 @@
       <br>
       <input type= "submit" class="btn btn-primary" value="Save Changes">
       <a href="addSecretary.html" target="iframe_a" class="btn btn-primary">Add Secretary</a>
+	  <a href="removeSecretary.html" target="iframe_a" class="btn btn-primary">Remove Secretary</a>
     </div>
   </form>
   </body>
