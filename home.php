@@ -56,7 +56,16 @@ session_start();
           <li><a href="medical_files" target="iframe_a">Medical Files</a></li>
           <li><a href="appointment" target="iframe_a">Appointments</a></li>
           <li><a href="secretary" target="iframe_a">Secretary</a></li>
+		  <li><a href="oracle" target="iframe_a">Oracle</a></li> 
         </ul>
+		
+		<div>
+        <form align = "right" name="logout_form" method="post" action="log_out.php">
+			<label class="logout">
+			<input name="submit" type="submit" id="submit" value="LOG OUT">
+			</label>
+			</form>
+        </div>
 
     <div class="container-fluid">
       <iframe src="" name="iframe_a">
