@@ -72,7 +72,7 @@ li {
 ul{
    padding:0
 }
-
+	
 th{
   color:#4d94ff;
   text-align: center;
@@ -95,4 +95,22 @@ tr:not(.different):hover{
     color: #4d94ff;
     background-color: #000000;
     border-color: #4d94ff;
+}
+
+.nav.nav-tabs > li.dropdown.active.open > a, 
+.nav.nav-tabs > li.dropdown.active.open > ul.dropdown-menu a:hover,
+.nav.nav-tabs > li.dropdown.open > a, 
+.nav.nav-tabs > li.dropdown.open > ul.dropdown-menu a:hover
+{
+  color: #6699ff;
+  background-color: white;
+  border-color: #6699ff;
+}
+select{
+ color: #6699ff; 
+ background-color:black;
+}
+select option {
+ color: #6699ff; 
+ background-color:black;
 }
