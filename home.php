@@ -53,10 +53,12 @@ session_start();
           <li><a href="clinic" target="iframe_a">Medical Clinic</a></li>
           <li><a href="doctor" target="iframe_a">Doctors</a></li>
           <li><a href="patient" target="iframe_a">Patients</a></li>
-          <li><a href="medical_files" target="iframe_a">Medical Files</a></li>
           <li><a href="appointment" target="iframe_a">Appointments</a></li>
           <li><a href="secretary" target="iframe_a">Secretary</a></li>
 		  <li><a href="oracle" target="iframe_a">Oracle</a></li> 
+		  <li><a href="patient_conditions" target="iframe_a">Patient Conditions</a></li>
+		  <li><a href="patient_history" target="iframe_a">Patient History</a></li>
+		  <li><a href="patient_prescription" target="iframe_a">Patient Prescription</a></li>
         </ul>
 		
 		<div>

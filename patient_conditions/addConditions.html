@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Dundas Walk-In Clinic </title>
+  <meta http-equiv="Content-type"
+     content="text/html; charset=utf-8"/>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+  <body class = "transparent">
+   <br>
+   <h3>Please fill in all the fields below.</h3>
+   <br>
+   <form action="insertConditions.php" method="post">
+
+   <div class="grey container">
+   <br>
+   <br>
+   <input type = "text" name = "pID" placeholder= "Patient ID" class="edit">
+   <br>
+   <br>
+   <input type = "text" name = "conditions" placeholder= "Condition(s)" class="edit">
+   <br>
+   <br>
+   <br>
+   </div>
+
+   <div class = "container">
+   <br>
+   <br>
+   <a href="index.php" target="iframe_a" class="btn btn-primary">Cancel</a>
+   <input type= "submit" class="btn btn-primary" value="Add Patient Conditions">
+   <br>
+   <br>
+   </div>
+   </form>
+
+   </body>
+</html>
